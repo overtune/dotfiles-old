@@ -1,11 +1,16 @@
  " Johan Runesson
 
 
-" 1.0 Base {{{
+" Base {{{
 	set nocompatible		" be iMproved, required
+
+	" Source the vimrc file after saving it
+	if has("autocmd")
+		autocmd bufwritepost .vimrc source $MYVIMRC
+	endif
 "}}}
 
-" 2.0 Plug {{{
+" Plugins {{{
 	" Load vim-plug
 	if empty(glob("~/.vim/autoload/plug.vim"))
 		execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -17,8 +22,8 @@
 	" Plugins
 	Plug 'docunext/closetag.vim' " For inserint html close tags
 	Plug 'scrooloose/nerdtree' " File-tree
-	Plug 'itchyny/lightline.vim' " A nice and simple statusbar
-	"Plug 'bling/vim-airline' " A nice and simple statusbar
+	"Plug 'itchyny/lightline.vim' " A nice and simple statusbar
+	Plug 'bling/vim-airline' " A nice and simple statusbar
 	Plug 'tpope/vim-surround' " For changing surroundings
 	Plug 'tpope/vim-repeat' " Helper plugin for surround
 	Plug 'kien/ctrlp.vim' " Fast file lookup
@@ -37,7 +42,18 @@
 	call plug#end()
 " }}}
 
-" 3.0 Shortcuts {{{
+" Plugin config {{{
+	" Airline: Enable the list of buffers
+	let g:airline#extensions#tabline#enabled = 1
+
+	" Airline: Show just the filename
+	let g:airline#extensions#tabline#fnamemod = ':t'
+
+	" Airline: Show statusline all the time
+	set laststatus=2
+" }}}
+
+" Shortcuts {{{
 	let mapleader=","		" leader is comma
 	" turn off search highlight
 	nnoremap <leader><space> :nohlsearch<CR>
@@ -55,13 +71,13 @@
 	nnoremap <leader>s :mksession<CR>
 	" type,evto edit the Vimrc
 	nnoremap <leader>ev :tabedit $MYVIMRC<CR>
-	" Source the vimrc file after saving it
-	if has("autocmd")
-		autocmd bufwritepost .vimrc source $MYVIMRC
-	endif
+	" Easy bindings for its various modes
+	nmap <leader>bb :CtrlPBuffer<cr>
+	nmap <leader>bm :CtrlPMixed<cr>
+	nmap <leader>bs :CtrlPMRU<cr>
 " }}}
 
-" 4.0 Colors {{{
+" Colors {{{
 	syntax enable 			" Syntax highlightning on
 	let &t_Co=256
 	let g:solarized_termcolors=256
@@ -70,29 +86,28 @@
 	colorscheme solarized 		" Use solarized colorscheme
 " }}}
 
-" 5.0 UI Config {{{
+" UI Config {{{
 	set number 			" Show line numbers
 	set showcmd 			" Show command in bottom bar
 	set cursorline 			" Highlight current line
 	set listchars=tab:▸\ ,eol:¬	" Change charachters for invisibles
-	set laststatus=2		" To display Lightline
 	"set lazyredraw 		" Redraw only when we need to
 	let NERDTreeShowHidden=1	" Show hidden files in NERDtree.
 	let b:javascript_fold=1
 " }}}
 
-" 6.0 Searching {{{
+" Searching {{{
 	set incsearch 			" Search as you type
 	set hlsearch 			" Highlight matches
 " }}}
 
-" 7.0 Movement {{{
+" Movement {{{
 	" move to beginning/end of line
 	nnoremap B ^
 	nnoremap E $
 " }}}
 
-" 8.0 Syntastic {{{
+" Syntastic {{{
 	" Recommended settings
 	set statusline+=%#warningmsg#
 	set statusline+=%{SyntasticStatuslineFlag()}
@@ -103,7 +118,7 @@
 	let g:syntastic_check_on_wq = 0
 "}}}
 
-" 9.0 Help {{{
+" Help {{{
 	" c - Change
 	" r - Replace 
 	"
@@ -115,7 +130,7 @@
 	" gT - go to previous tab
 	" {i}gt - go to tab in position i
 	"
-	" Vip - Select css selector etc
+	" Vip - Select css selector etc"{{{"}}}
 	" vep - Copy word (Visual select to the End and Put).
 	"
 	" CTRL + h - back one character
