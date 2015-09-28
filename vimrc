@@ -154,7 +154,16 @@
 	"
 	" Search and replace
 	" :%s/word/replacement/gc - Search global and ask for confirmation
+	"
+	" Bookmark
+	" ma - Set bookmark 'a'
+	" mb - Set bookmark 'b'
+	" mA - Set global (file) bookmark 'A'
+	" 'a - Goto bookmark 'a'
  "}}}
 
+ " Read list {{{
+	" http://dougblack.io/words/a-good-vimrc.html
+ "}}}
 
 " vim:foldmethod=marker:foldlevel=0
