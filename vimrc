@@ -30,7 +30,8 @@
 	Plug 'ervandew/supertab' " Autocomplete text like in Textmate
 	Plug 'digitaltoad/vim-jade', { 'for': 'jade' }  " Jade syntax support
 	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
-	Plug 'altercation/vim-colors-solarized' " Great colorscheme.
+	Plug 'altercation/vim-colors-solarized' " Great colorscheme
+	Plug 'rhlobo/vim-super-retab' " Super retab for easy change between tabs and spaces.
 
 	function! Installjshint(info)
 		if a:info.status == 'installed' || a:info.force
