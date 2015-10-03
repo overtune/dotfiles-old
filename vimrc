@@ -121,7 +121,7 @@
 
 " Help {{{
 	" c - Change
-	" r - Replace 
+	" r - Replace
 	"
 	" zR - Opens all folds
 	" zM - Closes all folds
@@ -130,6 +130,11 @@
 	" gt - go to next tab
 	" gT - go to previous tab
 	" {i}gt - go to tab in position i
+	"
+	" :bn - go to next buffer
+	" :bp - go to previous buffer
+	" :b1 - Go to bugger 1
+	" :bd - Close buffer
 	"
 	" Vip - Select css selector etc"{{{"}}}
 	" vep - Copy word (Visual select to the End and Put).
