@@ -33,6 +33,11 @@
 	Plug 'altercation/vim-colors-solarized' " Great colorscheme
 	Plug 'rhlobo/vim-super-retab' " Super retab for easy change between tabs and spaces.
 
+	Plug 'MarcWeber/vim-addon-mw-utils' " SnipMate dependency.
+	Plug 'tomtom/tlib_vim' " SnipMate dependency
+	Plug 'garbas/vim-snipmate' " SnipMate - add Textmate snippets functionality.
+	Plug 'honza/vim-snippets' " SnipMate snippets.
+
 	function! Installjshint(info)
 		if a:info.status == 'installed' || a:info.force
 			!sudo npm install -g jshint
@@ -166,6 +171,8 @@
 	" mb - Set bookmark 'b'
 	" mA - Set global (file) bookmark 'A'
 	" 'a - Goto bookmark 'a'
+	"
+	" =G - Indents the file. (Use gg first to go to top of file).
  "}}}
 
  " Read list {{{
