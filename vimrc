@@ -32,7 +32,7 @@
 	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
 	Plug 'altercation/vim-colors-solarized' " Great colorscheme
 	Plug 'rhlobo/vim-super-retab' " Super retab for easy change between tabs and spaces.
-
+	Plug 'jeetsukumaran/vim-buffergator' " For managing buffers.
 	Plug 'MarcWeber/vim-addon-mw-utils' " SnipMate dependency.
 	Plug 'tomtom/tlib_vim' " SnipMate dependency
 	Plug 'garbas/vim-snipmate' " SnipMate - add Textmate snippets functionality.
@@ -49,6 +49,7 @@
 " }}}
 
 " Plugin config {{{
+	" AIRLANE
 	" Airline: Enable the list of buffers
 	let g:airline#extensions#tabline#enabled = 1
 
@@ -57,6 +58,47 @@
 
 	" Airline: Show statusline all the time
 	set laststatus=2
+
+
+	" CTRL P
+	" Setup some default ignores
+	let g:ctrlp_custom_ignore = {
+		\ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+		\ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+	\}
+
+	" Use the nearest .git directory as the cwd
+	" This makes a lot of sense if you are working on a project that is in version
+	" control. It also supports works with .svn, .hg, .bzr.
+	" let g:ctrlp_working_path_mode = 'r'
+
+	" Use a leader instead of the actual named binding
+	nmap <leader>p :CtrlP<cr>
+
+	" Easy bindings for its various modes
+	nmap <leader>bb :CtrlPBuffer<cr>
+	nmap <leader>bm :CtrlPMixed<cr>
+	nmap <leader>bs :CtrlPMRU<cr>
+
+
+	" BUFFERGATOR
+	" Use the right side of the screen
+	let g:buffergator_viewport_split_policy = 'R'
+
+	" I want my own keymappings...
+	let g:buffergator_suppress_keymaps = 1
+
+	" Looper buffers
+	"let g:buffergator_mru_cycle_loop = 1
+
+	" Go to the previous buffer open
+	nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+
+	" Go to the next buffer open
+	nmap <leader>kk :BuffergatorMruCycleNext<cr>
+
+	" View the entire list of buffers open
+	nmap <leader>bl :BuffergatorOpen<cr>
 " }}}
 
 " Shortcuts {{{
@@ -177,6 +219,7 @@
 
  " Read list {{{
 	" http://dougblack.io/words/a-good-vimrc.html
+	" https://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
  "}}}
 
 " vim:foldmethod=marker:foldlevel=0
