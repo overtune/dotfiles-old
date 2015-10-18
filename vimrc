@@ -63,7 +63,7 @@
 	" CTRL P
 	" Setup some default ignores
 	let g:ctrlp_custom_ignore = {
-		\ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+		\ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|node_modules)$',
 		\ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
 	\}
 
@@ -139,6 +139,12 @@
 	set showcmd 			" Show command in bottom bar
 	set cursorline 			" Highlight current line
 	set listchars=tab:▸\ ,eol:¬	" Change charachters for invisibles
+	set tabstop=4 			" We want a tab size of 4 spaces.
+	set autoindent      "Keep indentation from previous line
+	set smartindent     "Automatically inserts indentation in some cases
+	set cindent         "Like smartindent, but stricter and more
+	set cinoptions+=+1  " Indent with one tab
+	set shiftwidth=4
 	"set lazyredraw 		" Redraw only when we need to
 	let NERDTreeShowHidden=1	" Show hidden files in NERDtree.
 	let b:javascript_fold=1
@@ -215,6 +221,8 @@
 	" 'a - Goto bookmark 'a'
 	"
 	" =G - Indents the file. (Use gg first to go to top of file).
+	"
+	" 0D - Deletes all text on line, but keeps line.
  "}}}
 
  " Read list {{{
