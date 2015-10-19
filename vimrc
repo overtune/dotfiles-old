@@ -231,3 +231,5 @@
  "}}}
 
 " vim:foldmethod=marker:foldlevel=0
+setlocal foldmethod=marker
+setlocal foldlevel=0
