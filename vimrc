@@ -136,6 +136,11 @@
 
 " UI Config {{{
 	set number 			" Show line numbers
+	set autoread 		" Reload files changed outside vim
+	set history=1000 	" Store lots of :cmdline history (its not 1990)
+	set scrolloff=10
+	set sidescrolloff=15
+	set sidescroll=1
 	set showcmd 			" Show command in bottom bar
 	set cursorline 			" Highlight current line
 	set listchars=tab:▸\ ,eol:¬	" Change charachters for invisibles
@@ -159,6 +164,10 @@
 	" move to beginning/end of line
 	nnoremap B ^
 	nnoremap E $
+	nnoremap <C-J> <C-W><C-J> "Ctrl-j to move down a split  
+	nnoremap <C-K> <C-W><C-K> "Ctrl-k to move up a split  
+	nnoremap <C-L> <C-W><C-L> "Ctrl-l to move    right a split  
+	nnoremap <C-H> <C-W><C-H> "Ctrl-h to move left a split 
 " }}}
 
 " Syntastic {{{
