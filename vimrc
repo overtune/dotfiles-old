@@ -99,6 +99,9 @@
 
 	" View the entire list of buffers open
 	nmap <leader>bl :BuffergatorOpen<cr>
+
+	" Supertab
+    let g:SuperTabMappingForward = '<S-Tab>'
 " }}}
 
 " Shortcuts {{{
