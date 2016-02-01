@@ -1,0 +1,4 @@
+set nocompatible
+set number
+set hls
+filetype plugin on
