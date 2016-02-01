@@ -1,4 +1,5 @@
-set nocompatible
-set number
-set hls
-filetype plugin on
+set nocompatible " Run in Vim mode
+set number " Show line numbers
+set hls " Hightligt search results
+set nrformats= " We want decimal numbers, not octal
+filetype plugin on " Enable plugins
