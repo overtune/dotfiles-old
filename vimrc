@@ -37,6 +37,8 @@
 	Plug 'tomtom/tlib_vim' " SnipMate dependency
 	Plug 'garbas/vim-snipmate' " SnipMate - add Textmate snippets functionality.
 	Plug 'honza/vim-snippets' " SnipMate snippets.
+	Plug 'tomtom/tcomment_vim' " For comment out code.
+	Plug 'terryma/vim-multiple-cursors' " Multiple cursors (like Sublime text).
 
 	function! Installjshint(info)
 		if a:info.status == 'installed' || a:info.force
@@ -112,7 +114,7 @@
 	" Toggle folds
 	nnoremap <Space> za
 	" Toggel NERDTree
-	map <C-n> :NERDTreeToggle<CR>
+	map <leader>o :NERDTreeToggle<CR>
 	" Map tab to ctrl-p for autocomplete
 	"imap <Tab> <C-P>
 	" type ',s' to save the buffers etc. Reopen where you were with Vim with 'vim -S'
