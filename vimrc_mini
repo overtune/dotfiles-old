@@ -3,3 +3,5 @@ set number " Show line numbers
 set hls " Hightligt search results
 set nrformats= " We want decimal numbers, not octal
 filetype plugin on " Enable plugins
+
+" https://github.com/tpope/vim-commentary
