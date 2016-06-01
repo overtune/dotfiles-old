@@ -1,8 +1,0 @@
-set nocompatible " Run in Vim mode
-set number " Show line numbers
-set hls " Hightligt search results
-set nrformats= " We want decimal numbers, not octal
-set history=200 " Store the last 200 commands
-filetype plugin on " Enable plugins
-
-" https://github.com/tpope/vim-commentary
