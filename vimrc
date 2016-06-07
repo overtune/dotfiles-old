@@ -7,6 +7,7 @@ set timeoutlen=1000 " Set mapping delay to 1000 (standard)
 set ttimeoutlen=0 " Set key code delay to 0.
 set hidden " Enable hidden buffers, so we don't get a warning when running :bnext and have unsaved changes
 set incsearch " Enable incsearch, which hihlight matches as you type
+set pastetoggle=<f5> " Toggle the paste option with the F5 key.
 filetype plugin on " Enable plugins
 
 " Map to easier navigate buffers
@@ -27,3 +28,4 @@ nnoremap ' `
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " https://github.com/tpope/vim-commentary
+" autoindent
