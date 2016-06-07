@@ -9,6 +9,7 @@ set hidden " Enable hidden buffers, so we don't get a warning when running :bnex
 set incsearch " Enable incsearch, which hihlight matches as you type
 set pastetoggle=<f5> " Toggle the paste option with the F5 key.
 filetype plugin on " Enable plugins
+runtime macros/matchit.vim "Adds % jump between tags and if/else amongst other. 
 
 " Map to easier navigate buffers
 nnoremap <silent> [b :bprevious<CR>
@@ -29,3 +30,4 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " https://github.com/tpope/vim-commentary
 " autoindent
+" http://github.com/tpope/vim-surround // See page 129.
