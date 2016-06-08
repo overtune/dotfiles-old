@@ -32,3 +32,4 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " autoindent
 " http://github.com/tpope/vim-surround // See page 129.
 " https://github.com/Valloric/YouCompleteMe
+" https://github.com/garbas/vim-snipmate
