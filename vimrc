@@ -8,6 +8,8 @@ set ttimeoutlen=0 " Set key code delay to 0.
 set hidden " Enable hidden buffers, so we don't get a warning when running :bnext and have unsaved changes
 set incsearch " Enable incsearch, which hihlight matches as you type
 set pastetoggle=<f5> " Toggle the paste option with the F5 key.
+set wrap " this enables visual wrapping
+set textwidth=0 wrapmargin=0 " this turns off physical line wrapping (ie: automatic insertion of newlines)
 filetype plugin on " Enable plugins
 runtime macros/matchit.vim "Adds % jump between tags and if/else amongst other. 
 
@@ -17,6 +19,10 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+" <C-l> mutes the search highlights (and redraws the screen)
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" Map jk to <esc>
 inoremap jk <esc>
 
 " Use <leader>ev to edit vimrc.
@@ -33,3 +39,4 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " http://github.com/tpope/vim-surround // See page 129.
 " https://github.com/Valloric/YouCompleteMe
 " https://github.com/garbas/vim-snipmate
+" smartcase " Turns on smart casesensitive. When searching with lower case, the search is case insensitive, when searching with upper case, the search is case sensitive.
