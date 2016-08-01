@@ -1,4 +1,16 @@
 set nocompatible " Run in Vim mode
+
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+	execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Plug start
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized' " Great colorscheme
+call plug#end()
+
+" Setup
 set number " Show line numbers
 set hls " Hightligt search results
 set scrolloff=10 " Start scrolling before we reach bottom
@@ -48,9 +60,13 @@ nnoremap ' `
 " Type %% to get current file path (usefull for example with the :edit command
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Syntax highlighting
+" Colorscheme
 syntax enable " Enable syntax highlighing
 let &t_Co=256 " Use 256 colors if available
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+set background=dark 		" Dark background
+colorscheme solarized 		" Use solarized colorscheme
 
 " https://github.com/tpope/vim-commentary
 " autoindent
