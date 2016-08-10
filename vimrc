@@ -7,7 +7,11 @@ endif
 
 " Plug start
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized' " Great colorscheme
+	Plug 'altercation/vim-colors-solarized' " Great colorscheme
+	"Plug 'scrooloose/nerdtree' " File-tree
+	Plug 'kien/ctrlp.vim' " Fast file lookup
+	"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
+	Plug 'jelera/vim-javascript-syntax'
 call plug#end()
 
 " Setup
