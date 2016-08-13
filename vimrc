@@ -25,7 +25,7 @@ set listchars=tab:▸\ ,eol:¬ " Change charachters for invisibles
 set tabstop=4 " Set a tabsize of 4 spaces
 set autoindent " Keep indentation from previous line
 set smartindent " Automatically inserts indentation in some cases
-set shiftwidth=2
+set shiftwidth=4
 set history=200 " Store the last 200 commands
 set timeoutlen=1000 " Set mapping delay to 1000 (standard)
 set ttimeoutlen=0 " Set key code delay to 0.
