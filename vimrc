@@ -12,6 +12,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'kien/ctrlp.vim' " Fast file lookup
 	"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
 	Plug 'jelera/vim-javascript-syntax'
+	Plug 'alvan/vim-closetag'
+	Plug 'Townk/vim-autoclose'
 call plug#end()
 
 " Setup
@@ -72,6 +74,8 @@ let g:solarized_termtrans=1
 set background=dark 		" Dark background
 colorscheme solarized 		" Use solarized colorscheme
 
+" Plugin config
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 " https://github.com/tpope/vim-commentary
 " autoindent
 " http://github.com/tpope/vim-surround // See page 129.
