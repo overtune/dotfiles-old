@@ -10,10 +10,17 @@ call plug#begin('~/.vim/plugged')
 	Plug 'altercation/vim-colors-solarized' " Great colorscheme
 	"Plug 'scrooloose/nerdtree' " File-tree
 	Plug 'kien/ctrlp.vim' " Fast file lookup
-	"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
-	Plug 'jelera/vim-javascript-syntax'
+	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
+	Plug 'mxw/vim-jsx' " Reactjs plugin
+	"Plug 'jelera/vim-javascript-syntax'
 	Plug 'alvan/vim-closetag'
 	Plug 'Townk/vim-autoclose'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-surround'
+	Plug 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
+	Plug 'tomtom/tlib_vim' " Snipmate dependency
+	Plug 'garbas/vim-snipmate' " Snipmate 
+	Plug 'honza/vim-snippets' " Snipmate snippets
 call plug#end()
 
 " Setup
@@ -72,13 +79,13 @@ let &t_Co=256 " Use 256 colors if available
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 set background=dark 		" Dark background
-colorscheme solarized 		" Use solarized colorscheme
+colorscheme solarized " Use solarized colorscheme
 
 " Plugin config
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
-" https://github.com/tpope/vim-commentary
+let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
+
+" Notes
 " autoindent
-" http://github.com/tpope/vim-surround // See page 129.
 " https://github.com/Valloric/YouCompleteMe
-" https://github.com/garbas/vim-snipmate
 " smartcase " Turns on smart casesensitive. When searching with lower case, the search is case insensitive, when searching with upper case, the search is case sensitive.
