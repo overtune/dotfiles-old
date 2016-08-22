@@ -12,11 +12,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'kien/ctrlp.vim' " Fast file lookup
 	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
 	Plug 'mxw/vim-jsx' " Reactjs plugin
+	Plug 'elzr/vim-json' " Json plugin
+	Plug 'heavenshell/vim-jsdoc' " JSDoc plugin
 	"Plug 'jelera/vim-javascript-syntax'
 	Plug 'alvan/vim-closetag'
 	Plug 'Townk/vim-autoclose'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-fugitive'
 	Plug 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
 	Plug 'garbas/vim-snipmate' " Snipmate 
@@ -84,7 +87,8 @@ colorscheme solarized " Use solarized colorscheme
 " Plugin config
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
-
+let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
+let g:jsdoc_underscore_private = 1 " turn on detecting underscore starting functions as private convention
 " Notes
 " autoindent
 " https://github.com/Valloric/YouCompleteMe
