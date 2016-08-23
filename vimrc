@@ -24,6 +24,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
 	Plug 'garbas/vim-snipmate' " Snipmate 
 	Plug 'honza/vim-snippets' " Snipmate snippets
+	Plug 'Valloric/YouCompleteMe' " Autocomplete
+	" cd ~/.vim/plugged/YouCompleteMe && ./install.py
 call plug#end()
 
 " Setup
