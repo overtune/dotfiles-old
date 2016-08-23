@@ -57,6 +57,9 @@ runtime macros/matchit.vim "Adds % jump between tags and if/else amongst other.
 " Set space as the leader
 let mapleader = "\<Space>"
 
+" Update :E to explore (emmet plugin causes problem otherwise)
+cabbrev E Explore
+
 " Map to easier navigate buffers
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
