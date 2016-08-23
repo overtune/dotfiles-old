@@ -8,13 +8,11 @@ endif
 " Plug start
 call plug#begin('~/.vim/plugged')
 	Plug 'altercation/vim-colors-solarized' " Great colorscheme
-	"Plug 'scrooloose/nerdtree' " File-tree
 	Plug 'kien/ctrlp.vim' " Fast file lookup
 	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
 	Plug 'mxw/vim-jsx' " Reactjs plugin
 	Plug 'elzr/vim-json' " Json plugin
 	Plug 'heavenshell/vim-jsdoc' " JSDoc plugin
-	"Plug 'jelera/vim-javascript-syntax'
 	Plug 'alvan/vim-closetag'
 	Plug 'Townk/vim-autoclose'
 	Plug 'tpope/vim-commentary'
@@ -22,13 +20,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
-	"Plug 'garbas/vim-snipmate' " Snipmate 
 	Plug 'SirVer/ultisnips' " UltiSnips
 	Plug 'honza/vim-snippets' " Snipmate snippets
 	Plug 'Valloric/YouCompleteMe' " Autocomplete
+	" cd ~/.vim/plugged/YouCompleteMe && ./install.py
 	Plug 'ervandew/supertab' " Supertab
 	Plug 'mattn/emmet-vim' " Emmet
-	" cd ~/.vim/plugged/YouCompleteMe && ./install.py
+	Plug 'vim-multiple-cursors' " Multiple cursors
 call plug#end()
 
 " Setup
