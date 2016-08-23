@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'honza/vim-snippets' " Snipmate snippets
 	Plug 'Valloric/YouCompleteMe' " Autocomplete
 	Plug 'ervandew/supertab' " Supertab
+	Plug 'mattn/emmet-vim' " Emmet
 	" cd ~/.vim/plugged/YouCompleteMe && ./install.py
 call plug#end()
 
