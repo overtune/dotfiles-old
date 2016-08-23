@@ -22,9 +22,11 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
-	Plug 'garbas/vim-snipmate' " Snipmate 
+	"Plug 'garbas/vim-snipmate' " Snipmate 
+	Plug 'SirVer/ultisnips' " UltiSnips
 	Plug 'honza/vim-snippets' " Snipmate snippets
 	Plug 'Valloric/YouCompleteMe' " Autocomplete
+	Plug 'ervandew/supertab' " Supertab
 	" cd ~/.vim/plugged/YouCompleteMe && ./install.py
 call plug#end()
 
@@ -113,6 +115,17 @@ let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
 let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
 let g:jsdoc_underscore_private = 1 " turn on detecting underscore starting functions as private convention
 let g:vim_json_syntax_conceal = 0 " turn off qoute concealing for the vim-json plugin
+
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Notes
 " autoindent
