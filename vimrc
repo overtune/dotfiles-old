@@ -76,6 +76,27 @@ nnoremap ' `
 " Type %% to get current file path (usefull for example with the :edit command
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" Remap ctrl-n to ctrl-space (for autocomplete)
+if has("gui_running")
+	inoremap <C-Space> <C-n>
+else
+	if has("unix")
+		inoremap <Nul> <C-n>
+	else
+	endif
+endif
+
+" Use leader w to save file
+nnoremap <Leader>w :w<CR>
+
+" Easier mapping for access system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
 " Colorscheme
 syntax enable " Enable syntax highlighing
 let &t_Co=256 " Use 256 colors if available
@@ -89,6 +110,8 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
 let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
 let g:jsdoc_underscore_private = 1 " turn on detecting underscore starting functions as private convention
+let g:vim_json_syntax_conceal = 0 " turn off qoute concealing for the vim-json plugin
+
 " Notes
 " autoindent
 " https://github.com/Valloric/YouCompleteMe
