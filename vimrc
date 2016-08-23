@@ -116,3 +116,4 @@ let g:vim_json_syntax_conceal = 0 " turn off qoute concealing for the vim-json p
 " autoindent
 " https://github.com/Valloric/YouCompleteMe
 " smartcase " Turns on smart casesensitive. When searching with lower case, the search is case insensitive, when searching with upper case, the search is case sensitive.
+" :so % " Reload vimrc
