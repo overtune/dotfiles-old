@@ -26,7 +26,9 @@ call plug#begin('~/.vim/plugged')
 	" cd ~/.vim/plugged/YouCompleteMe && ./install.py
 	Plug 'ervandew/supertab' " Supertab
 	Plug 'mattn/emmet-vim' " Emmet
-	Plug 'vim-multiple-cursors' " Multiple cursors
+	" Plug 'vim-multiple-cursors' " Multiple cursors (we have a bug where
+	" first space press enters insert mode)
+	Plug  'mileszs/ack.vim' " Search with the silver searcher
 call plug#end()
 
 " Setup
@@ -56,7 +58,7 @@ runtime macros/matchit.vim "Adds % jump between tags and if/else amongst other.
 let mapleader = "\<Space>"
 
 " Update :E to explore (emmet plugin causes problem otherwise)
-cabbrev E Explore
+"cabbrev E Explore
 
 " Map to easier navigate buffers
 nnoremap <silent> [b :bprevious<CR>
@@ -95,6 +97,12 @@ endif
 " Use leader w to save file
 nnoremap <Leader>w :w<CR>
 
+" Use leader q to quit
+nnoremap <Leader>q :q<CR>
+
+" Use leader e to explore
+nnoremap <Leader>e :Explore<CR>
+
 " Easier mapping for access system clipboard
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -129,8 +137,28 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" Ack/ag
+if executable('ag')
+	 let g:ackprg = 'ag --vimgrep'
+
+	" Use ag over grep
+	set grepprg=ag\ --nogroup\ --nocolor
+
+	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+	let g:ctrlp_user_command = 'ag %s -l --ignore node_modules --ignore build --nocolor -g ""'
+
+	" ag is fast enough that CtrlP doesn't need to cache
+	let g:ctrlp_use_caching = 0
+
+	" bind K to grep word under cursor
+	nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+ endif
+
 " Notes
 " autoindent
 " https://github.com/Valloric/YouCompleteMe
 " smartcase " Turns on smart casesensitive. When searching with lower case, the search is case insensitive, when searching with upper case, the search is case sensitive.
 " :so % " Reload vimrc
+" https://github.com/ggreer/the_silver_searcher/blob/master/README.md
+" https://robots.thoughtbot.com/faster-grepping-in-vim
+" http://softwareas.com/a-simple-way-to-speed-up-vim-ctrl-p-plugin-delegate-to-ag/
