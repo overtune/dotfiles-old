@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'heavenshell/vim-jsdoc' " JSDoc plugin
 	Plug 'alvan/vim-closetag'
 	" Plug 'Townk/vim-autoclose'
+	Plug 'overtune/vim-autoclose'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-fugitive'
