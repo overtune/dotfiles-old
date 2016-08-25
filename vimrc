@@ -2,7 +2,7 @@ set nocompatible " Run in Vim mode
 
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
-	execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+	execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 " Plug start
@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'elzr/vim-json' " Json plugin
 	Plug 'heavenshell/vim-jsdoc' " JSDoc plugin
 	Plug 'alvan/vim-closetag'
-	Plug 'Townk/vim-autoclose'
+	" Plug 'Townk/vim-autoclose'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-fugitive'
@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 	" Plug 'vim-multiple-cursors' " Multiple cursors (we have a bug where
 	" first space press enters insert mode)
 	Plug  'mileszs/ack.vim' " Search with the silver searcher
+	Plug  'mustache/vim-mustache-handlebars' " Handlebars plugin
 call plug#end()
 
 " Setup
@@ -114,8 +115,8 @@ vmap <Leader>P "+P
 " Colorscheme
 syntax enable " Enable syntax highlighing
 let &t_Co=256 " Use 256 colors if available
-let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+let g:solarized_termcolors=256
 set background=dark 		" Dark background
 colorscheme solarized " Use solarized colorscheme
 
@@ -142,7 +143,7 @@ if executable('ag')
 	 let g:ackprg = 'ag --vimgrep'
 
 	" Use ag over grep
-	set grepprg=ag\ --nogroup\ --nocolor
+	set grepprg=ag\ --nogroup\ --nocolor\ --ignore-dir=node_modules
 
 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 	let g:ctrlp_user_command = 'ag %s -l --ignore node_modules --ignore build --nocolor -g ""'
