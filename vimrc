@@ -1,4 +1,6 @@
 set nocompatible " Run in Vim mode
+set encoding=utf-8
+scriptencoding utf-8
 
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
