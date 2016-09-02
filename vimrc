@@ -85,6 +85,12 @@ nnoremap <leader>ev :tabedit $MYVIMRC<CR>
 " Use ' to jump to mark with preserved column
 nnoremap ' `
 
+" Don't use cursor keys.
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " Type %% to get current file path (usefull for example with the :edit command
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
