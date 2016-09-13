@@ -80,7 +80,8 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 inoremap jk <esc>
 
 " Use <leader>ev to edit vimrc.
-nnoremap <leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 " Use ' to jump to mark with preserved column
 nnoremap ' `
