@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugged')
 	" first space press enters insert mode)
 	Plug  'mileszs/ack.vim' " Search with the silver searcher
 	Plug  'mustache/vim-mustache-handlebars' " Handlebars plugin
+	Plug 'scrooloose/nerdtree' " Nerd tree
+	Plug 'jeetsukumaran/vim-buffergator' "Buffergator
 call plug#end()
 
 " Setup
@@ -69,12 +71,13 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+map <leader> d :bd<CR>
  
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
 
-" <C-l> mutes the search highlights (and redraws the screen)
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" <C-s> mutes the search highlights (and redraws the screen)
+nnoremap <silent> <C-s> :<C-u>nohlsearch<CR><C-l>
 
 " Map jk to <esc>
 inoremap jk <esc>
@@ -112,7 +115,14 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
 " Use leader e to explore
-nnoremap <Leader>e :Explore<CR>
+map <Leader>e :NERDTreeToggle<CR>
+" nnoremap <Leader>e :Explore<CR>
+
+" Easier window switching
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
 
 " Easier mapping for access system clipboard
 vmap <Leader>y "+y
@@ -164,6 +174,12 @@ if executable('ag')
 	" bind K to grep word under cursor
 	nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
  endif
+
+" Buffergator
+" Use the right side of the screen
+let g:buffergator_viewport_split_policy = 'R'
+nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+nmap <leader>kk :BuffergatorMruCycleNext<cr>
 
 " Notes
 " autoindent
