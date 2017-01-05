@@ -146,7 +146,12 @@ let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
 let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
 let g:jsdoc_underscore_private = 1 " turn on detecting underscore starting functions as private convention
 let g:vim_json_syntax_conceal = 0 " turn off qoute concealing for the vim-json plugin
-
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
+"
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
