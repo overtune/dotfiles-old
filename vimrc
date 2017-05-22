@@ -1,7 +1,8 @@
 set nocompatible " Run in Vim mode
 set encoding=utf-8
 scriptencoding utf-8
-
+set guifont=Menlo:h13
+set linespace=4
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
 	execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -31,10 +32,12 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mattn/emmet-vim' " Emmet
 	" Plug 'vim-multiple-cursors' " Multiple cursors (we have a bug where
 	" first space press enters insert mode)
-	Plug  'mileszs/ack.vim' " Search with the silver searcher
-	Plug  'mustache/vim-mustache-handlebars' " Handlebars plugin
+	Plug 'mileszs/ack.vim' " Search with the silver searcher
+	Plug 'mustache/vim-mustache-handlebars' " Handlebars plugin
 	Plug 'scrooloose/nerdtree' " Nerd tree
 	Plug 'jeetsukumaran/vim-buffergator' "Buffergator
+	Plug 'easymotion/vim-easymotion' "Easymotion
+	Plug 'rakr/vim-one' " Testing One dark theme
 call plug#end()
 
 " Setup
@@ -77,7 +80,7 @@ map <leader> d :bd<CR>
 nmap <leader>l :set list!<CR>
 
 " <C-s> mutes the search highlights (and redraws the screen)
-nnoremap <silent> <C-s> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> <leader>s :<C-u>nohlsearch<CR><C-l>
 
 " Map jk to <esc>
 inoremap jk <esc>
@@ -138,7 +141,8 @@ let &t_Co=256 " Use 256 colors if available
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 set background=dark 		" Dark background
-colorscheme solarized " Use solarized colorscheme
+" colorscheme solarized " Use solarized colorscheme
+colorscheme one
 
 " Plugin config
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
@@ -151,7 +155,7 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
-"
+let g:user_emmet_leader_key='§'
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
@@ -171,7 +175,7 @@ if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor\ --ignore-dir=node_modules
 
 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	let g:ctrlp_user_command = 'ag %s -l --ignore node_modules --ignore build --nocolor -g ""'
+	let g:ctrlp_user_command = 'ag %s -l --ignore build --ignore node_modules --nocolor -g ""'
 
 	" ag is fast enough that CtrlP doesn't need to cache
 	let g:ctrlp_use_caching = 0
