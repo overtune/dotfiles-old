@@ -220,6 +220,17 @@ let g:buffergator_viewport_split_policy = 'R'
 nmap <leader>jj :BuffergatorMruCyclePrev<cr>
 nmap <leader>kk :BuffergatorMruCycleNext<cr>
 
+" Relative line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+" Toggle relative linenumbers with ctrl+n
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " Notes
 " autoindent
 " https://github.com/Valloric/YouCompleteMe
