@@ -165,11 +165,17 @@ if (empty($TMUX))
   endif
 endif
 
+if &term =~ '256color'
+	" Disable Background Color Erase (BCE) so that color schemes
+	" work properly when Vim is used inside tmux and GNU screen.
+	set t_ut=
+endif
+
 " Colorscheme
 syntax enable " Enable syntax highlighing
 let &t_Co=256 " Use 256 colors if available
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
+" let g:solarized_termcolors=256
 set background=dark 		" Dark background
 " colorscheme solarized " Use solarized colorscheme
 colorscheme onedark
