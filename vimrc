@@ -96,9 +96,6 @@ nmap <leader>l :set list!<CR>
 " <C-s> mutes the search highlights (and redraws the screen)
 nnoremap <silent> <leader>s :<C-u>nohlsearch<CR><C-l>
 
-" Map jk to <esc>
-inoremap jk <esc>
-
 " Use <leader>ev to edit vimrc.
 nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
