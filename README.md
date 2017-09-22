@@ -1,6 +1,5 @@
 # dotfiles
-Just me trying to learn Vim.
-A simple vimrc with Plug.vim as plugin manager.
+My dotfiles...
 
 ## Install instructions
 First, clone this repository, and execute the makesymlinks.sh bash script:
