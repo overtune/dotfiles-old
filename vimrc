@@ -1,16 +1,31 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Defaults
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set nocompatible " Run in Vim mode
 set encoding=utf-8
 scriptencoding utf-8
 set guifont=Menlo:h13
 set linespace=4
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load vim-plug
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if empty(glob("~/.vim/autoload/plug.vim"))
 	execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-" Plug start
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins (handled with Plug)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call plug#begin('~/.vim/plugged')
-	Plug 'altercation/vim-colors-solarized' " Great colorscheme
+	" Plug 'altercation/vim-colors-solarized' " Great colorscheme
 	Plug 'joshdick/onedark.vim' " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme.
 	Plug 'kien/ctrlp.vim' " Fast file lookup
 	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
@@ -27,6 +42,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
 	Plug 'SirVer/ultisnips' " UltiSnips
 	Plug 'honza/vim-snippets' " Snipmate snippets
+	Plug 'Galooshi/vim-import-js' "Auto import js.
 
 	function! BuildYCM(info)
 		" info is a dictionary with 3 fields
@@ -53,7 +69,12 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline' " lean & mean status/tabline for vim that's light as air
 call plug#end()
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set number " Show line numbers
 set hls " Hightligt search results
 set scrolloff=10 " Start scrolling before we reach bottom
@@ -74,8 +95,24 @@ set pastetoggle=<f5> " Toggle the paste option with the F5 key.
 set wrap " this enables visual wrapping
 set textwidth=0 wrapmargin=0 " this turns off physical line wrapping (ie: automatic insertion of newlines)
 set laststatus=2 " Else doesn't vim-airline appear until I create a new split
+set clipboard=unnamed " Set the default clipboard to the systems clipboard.
 filetype plugin on " Enable plugins
 runtime macros/matchit.vim "Adds % jump between tags and if/else amongst other. 
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Backup and swap files
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+ 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Set space as the leader
 let mapleader = "\<Space>"
@@ -138,13 +175,11 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-" Easier mapping for access system clipboard
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUI and theme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -177,7 +212,12 @@ set background=dark 		" Dark background
 " colorscheme solarized " Use solarized colorscheme
 colorscheme onedark
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
 let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
@@ -223,7 +263,12 @@ let g:buffergator_viewport_split_policy = 'R'
 nmap <leader>jj :BuffergatorMruCyclePrev<cr>
 nmap <leader>kk :BuffergatorMruCycleNext<cr>
 
-" Relative line numbers
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Relative line numbers toggle function
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function! NumberToggle()
   if(&relativenumber == 1)
     set norelativenumber
@@ -234,7 +279,12 @@ endfunc
 " Toggle relative linenumbers with ctrl+n
 nnoremap <C-n> :call NumberToggle()<cr>
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Notes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " autoindent
 " https://github.com/Valloric/YouCompleteMe
 " smartcase " Turns on smart casesensitive. When searching with lower case, the search is case insensitive, when searching with upper case, the search is case sensitive.
