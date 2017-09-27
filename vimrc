@@ -249,7 +249,8 @@ if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor\ --ignore-dir=node_modules
 
 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	let g:ctrlp_user_command = 'ag %s -l --ignore build --ignore node_modules --nocolor -g ""'
+	" let g:ctrlp_user_command = 'ag %s -l --ignore build --ignore node_modules --nocolor -g ""'
+	let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
 
 	" ag is fast enough that CtrlP doesn't need to cache
 	let g:ctrlp_use_caching = 0
