@@ -125,7 +125,6 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-map <leader> d :bd<CR>
  
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
