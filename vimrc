@@ -266,6 +266,8 @@ nmap <leader>jj :BuffergatorMruCyclePrev<cr>
 nmap <leader>kk :BuffergatorMruCycleNext<cr>
 
 
+" NERDTree
+let g:NERDTreeWinSize=40
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Relative line numbers toggle function
@@ -278,6 +280,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
+set relativenumber " Set relative numbers as default
 " Toggle relative linenumbers with ctrl+n
 nnoremap <C-n> :call NumberToggle()<cr>
 
@@ -294,3 +297,4 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " https://github.com/ggreer/the_silver_searcher/blob/master/README.md
 " https://robots.thoughtbot.com/faster-grepping-in-vim
 " http://softwareas.com/a-simple-way-to-speed-up-vim-ctrl-p-plugin-delegate-to-ag/
+" https://github.com/sheerun/vim-polyglot
