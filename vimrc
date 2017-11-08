@@ -67,6 +67,9 @@ call plug#begin('~/.vim/plugged')
 	Plug 'easymotion/vim-easymotion' "Easymotion
 	Plug 'rakr/vim-one' " Testing One dark theme
 	Plug 'vim-airline/vim-airline' " lean & mean status/tabline for vim that's light as air
+	Plug 'leafgarland/typescript-vim' " Typescript support
+	" Plug 'neilagabriel/vim-geeknote' " Integration with geeknote
+	" https://github.com/VitaliyRodnenko/geeknote
 call plug#end()
 
 
@@ -217,7 +220,8 @@ colorscheme onedark
 " Plugin config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx,*.handlebars,*.hbs"
+let delimitMate_matchpairs ="(:),[:],{:}"
 let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
 let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
 let g:jsdoc_underscore_private = 1 " turn on detecting underscore starting functions as private convention
