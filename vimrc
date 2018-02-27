@@ -27,14 +27,16 @@ endif
 call plug#begin('~/.vim/plugged')
 	" Plug 'altercation/vim-colors-solarized' " Great colorscheme
 	Plug 'joshdick/onedark.vim' " A dark Vim/Neovim color scheme inspired by Atom's One Dark syntax theme.
-	Plug 'kien/ctrlp.vim' " Fast file lookup
+	" Plug 'kien/ctrlp.vim' " Fast file lookup
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 	Plug 'pangloss/vim-javascript', { 'for': 'javascript' }  " Better javascript support for Vim
 	Plug 'mxw/vim-jsx' " Reactjs plugin
 	Plug 'elzr/vim-json' " Json plugin
 	Plug 'heavenshell/vim-jsdoc' " JSDoc plugin
-	Plug 'alvan/vim-closetag'
+	Plug 'chr4/nginx.vim' " Nginx syntax plugin
+	" Plug 'alvan/vim-closetag'
 	" Plug 'Townk/vim-autoclose'
-	Plug 'Raimondi/delimitMate' " Autoclose plugin
+	" Plug 'Raimondi/delimitMate' " Autoclose plugin
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-fugitive'
@@ -65,7 +67,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree' " Nerd tree
 	Plug 'jeetsukumaran/vim-buffergator' "Buffergator
 	Plug 'easymotion/vim-easymotion' "Easymotion
-	Plug 'rakr/vim-one' " Testing One dark theme
 	Plug 'vim-airline/vim-airline' " lean & mean status/tabline for vim that's light as air
 	Plug 'leafgarland/typescript-vim' " Typescript support
 	" Plug 'neilagabriel/vim-geeknote' " Integration with geeknote
@@ -82,7 +83,7 @@ set number " Show line numbers
 set hls " Hightligt search results
 set scrolloff=10 " Start scrolling before we reach bottom
 set autoread " Reload files changed outside vim
-set cursorline " Highlight current line
+" set cursorline " Highlight current line
 set nrformats= " We want decimal numbers, not octal
 set listchars=tab:▸\ ,eol:¬ " Change charachters for invisibles
 set tabstop=4 " Set a tabsize of 4 spaces
@@ -99,6 +100,7 @@ set wrap " this enables visual wrapping
 set textwidth=0 wrapmargin=0 " this turns off physical line wrapping (ie: automatic insertion of newlines)
 set laststatus=2 " Else doesn't vim-airline appear until I create a new split
 set clipboard=unnamed " Set the default clipboard to the systems clipboard.
+set synmaxcol=300 " Disable syntax highlightning for rows larger than 300 cols.
 filetype plugin on " Enable plugins
 runtime macros/matchit.vim "Adds % jump between tags and if/else amongst other. 
 
@@ -177,7 +179,10 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-
+inoremap <c-k> <Up>
+inoremap <c-j> <Down>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI and theme
@@ -220,8 +225,8 @@ colorscheme onedark
 " Plugin config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx,*.handlebars,*.hbs"
-let delimitMate_matchpairs ="(:),[:],{:}"
+" let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx,*.handlebars,*.hbs"
+" let delimitMate_matchpairs ="(:),[:],{:}"
 let g:jsx_ext_required = 0 " Enable vim-jsx plugin to be run on .js files aswell
 let g:jsdoc_access_descriptions = 2 "turn on access tags like @<private|public>
 let g:jsdoc_underscore_private = 1 " turn on detecting underscore starting functions as private convention
@@ -253,11 +258,10 @@ if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor\ --ignore-dir=node_modules
 
 	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	" let g:ctrlp_user_command = 'ag %s -l --ignore build --ignore node_modules --nocolor -g ""'
-	let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+	" let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
 
 	" ag is fast enough that CtrlP doesn't need to cache
-	let g:ctrlp_use_caching = 0
+	" let g:ctrlp_use_caching = 0
 
 	" bind K to grep word under cursor
 	nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -273,6 +277,9 @@ nmap <leader>kk :BuffergatorMruCycleNext<cr>
 " NERDTree
 let g:NERDTreeWinSize=40
 
+" FZF
+map <c-p> :FZF <CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Relative line numbers toggle function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -284,7 +291,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-set relativenumber " Set relative numbers as default
+" set relativenumber " Set relative numbers as default
 " Toggle relative linenumbers with ctrl+n
 nnoremap <C-n> :call NumberToggle()<cr>
 
