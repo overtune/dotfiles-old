@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-fugitive'
+	" Plug 'tpope/vim-vinegar'
 	Plug 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
 	Plug 'SirVer/ultisnips' " UltiSnips
@@ -69,6 +70,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'easymotion/vim-easymotion' "Easymotion
 	Plug 'vim-airline/vim-airline' " lean & mean status/tabline for vim that's light as air
 	Plug 'leafgarland/typescript-vim' " Typescript support
+	Plug 'vimwiki/vimwiki' " Vimwiki
 	" Plug 'neilagabriel/vim-geeknote' " Integration with geeknote
 	" https://github.com/VitaliyRodnenko/geeknote
 call plug#end()
@@ -279,6 +281,9 @@ let g:NERDTreeWinSize=40
 
 " FZF
 map <c-p> :FZF <CR>
+
+" VimWiki
+let g:vimwiki_list = [{'path': '~/wiki/', 'path_html': '~/wiki_html', 'syntax': 'markdown', 'ext': '.md' }]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Relative line numbers toggle function
