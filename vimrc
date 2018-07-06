@@ -301,6 +301,14 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocommand Groups
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup markdown
+au! BufRead ~/wiki/index.md !git --git-dir ~/wiki/.git pull
+au! BufWritePost ~/wiki/* !cd ~/wiki;git add "%";git commit -m "Auto commit of %:t." "%";git push
+augroup END
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Notes
