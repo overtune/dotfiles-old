@@ -7,7 +7,7 @@ alias dc='docker-compose'
 alias docker-preview='docker -H 52.178.221.208:2376 --tlsverify'
 alias docker-nuke='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker system prune -a -f --volumes'
 alias docker-rm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
-export HOMEBREW_GITHUB_API_TOKEN="0eb65b788602fd5394f42627e2fe650a5c6d0f99"
+export HOMEBREW_GITHUB_API_TOKEN=""
 
 export NVM_DIR="/Users/johrun/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
