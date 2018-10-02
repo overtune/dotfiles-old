@@ -311,6 +311,15 @@ augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use iA Writer to preview markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:setupMarkdownPreview()
+  nnoremap <leader>p :silent !open -a Markoff.app '%:p'<cr>
+endfunction
+
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Notes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
