@@ -2,9 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Custom
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+if [ "$(uname 2> /dev/null)" = "Darwin" ]; then
+	alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+fi
 alias dc='docker-compose'
-alias docker-preview='docker -H 52.178.221.208:2376 --tlsverify'
 alias docker-nuke='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker system prune -a -f --volumes'
 alias docker-rm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 export HOMEBREW_GITHUB_API_TOKEN=""
@@ -13,7 +14,7 @@ export NVM_DIR="/Users/johrun/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/johrun/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
