@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-abolish'
 	" Plug 'tpope/vim-vinegar'
 	Plug 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
 	Plug 'tomtom/tlib_vim' " Snipmate dependency
@@ -71,6 +72,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline' " lean & mean status/tabline for vim that's light as air
 	Plug 'leafgarland/typescript-vim' " Typescript support
 	Plug 'vimwiki/vimwiki' " Vimwiki
+	Plug 'Quramy/tsuquyomi' " Typescript
 	" Plug 'neilagabriel/vim-geeknote' " Integration with geeknote
 	" https://github.com/VitaliyRodnenko/geeknote
 call plug#end()
@@ -141,7 +143,7 @@ nnoremap <silent> <leader>s :<C-u>nohlsearch<CR><C-l>
 
 " Use <leader>ev to edit vimrc.
 nnoremap <leader>ev :e $MYVIMRC<CR>
-nnoremap <leader>r :source $MYVIMRC<CR>
+autocmd FileType vim nmap <buffer> <leader>r :source $MYVIMRC<CR>
 
 " Use ' to jump to mark with preserved column
 nnoremap ' `
@@ -174,6 +176,11 @@ nnoremap <Leader>q :q<CR>
 " Use leader e to explore
 map <Leader>e :NERDTreeToggle<CR>
 " nnoremap <Leader>e :Explore<CR>
+
+" Use leader to go to typescript definition and show references
+autocmd FileType typescript nmap <buffer> <Leader>d :TsuquyomiDefinition<CR>
+autocmd FileType typescript nmap <buffer> <Leader>D :TsuquyomiReferences<CR>
+autocmd FileType typescript nmap <buffer> <Leader>r <Plug>(TsuquyomiRenameSymbolC)
 
 " Easier window switching
 map <C-J> <C-W>j
@@ -242,6 +249,10 @@ let g:user_emmet_leader_key=','
 " YouCompleteMe and UltiSnips compatibility, with the helper of supertab
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
 
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
