@@ -73,6 +73,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'leafgarland/typescript-vim' " Typescript support
 	Plug 'vimwiki/vimwiki' " Vimwiki
 	Plug 'Quramy/tsuquyomi' " Typescript
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	" Plug 'neilagabriel/vim-geeknote' " Integration with geeknote
 	" https://github.com/VitaliyRodnenko/geeknote
 call plug#end()
@@ -137,6 +138,9 @@ nnoremap <silent> ]B :blast<CR>
  
 " Shortcut to rapidly toggle 'set list'
 nmap <leader>l :set list!<CR>
+
+" jj for Esc
+imap jj <Esc>
 
 " <C-s> mutes the search highlights (and redraws the screen)
 nnoremap <silent> <leader>s :<C-u>nohlsearch<CR><C-l>
