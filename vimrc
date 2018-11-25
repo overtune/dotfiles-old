@@ -300,6 +300,9 @@ map <c-p> :FZF <CR>
 " VimWiki
 let g:vimwiki_list = [{'path': '~/wiki/', 'path_html': '~/wiki_html', 'syntax': 'markdown', 'ext': '.md' }]
 
+" Vim go
+let g:go_fmt_command = "goimports"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Relative line numbers toggle function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
