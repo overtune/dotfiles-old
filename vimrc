@@ -230,7 +230,7 @@ let &t_Co=256 " Use 256 colors if available
 " let g:solarized_termcolors=256
 set background=dark 		" Dark background
 " colorscheme solarized " Use solarized colorscheme
-colorscheme onedark
+silent! colorscheme onedark
 
 
 
