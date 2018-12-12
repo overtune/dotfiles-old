@@ -73,6 +73,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'leafgarland/typescript-vim' " Typescript support
 	Plug 'vimwiki/vimwiki' " Vimwiki
 	Plug 'Quramy/tsuquyomi' " Typescript
+	Plug 'prettier/vim-prettier', {'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'hbs', 'handlebars'] }
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	" Plug 'neilagabriel/vim-geeknote' " Integration with geeknote
 	" https://github.com/VitaliyRodnenko/geeknote
@@ -332,7 +333,7 @@ augroup END
 " Use iA Writer to preview markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! s:setupMarkdownPreview()
-  nnoremap <leader>p :silent !open -a Markoff.app '%:p'<cr>
+  nnoremap <leader>P :silent !open -a Markoff.app '%:p'<cr>
 endfunction
 
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdownPreview()
