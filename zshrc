@@ -10,8 +10,8 @@ alias docker-nuke='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q
 alias docker-rm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 export HOMEBREW_GITHUB_API_TOKEN=""
 
-export NVM_DIR="/Users/johrun/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
